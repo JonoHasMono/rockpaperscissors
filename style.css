@@ -1,0 +1,8 @@
+.rock {
+
+}
+
+.paper {
+    display: flex;
+    justify-content: center;
+} 
