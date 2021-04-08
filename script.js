@@ -1,6 +1,6 @@
 const choices = ["rock", "paper", "scissors"];
 const questionPlayer = `Rock, paper, or scissors?`;
-let playerAnswer = prompt(questionPlayer);
+//let playerAnswer = prompt(questionPlayer);
 
 function startGame() {
 
@@ -11,7 +11,7 @@ function startGame() {
         let playerAnswerLC = playerAnswer.toLowerCase();
         
         if(playerAnswerLC == 'rock') {
-            alert('You chose: Rock.');
+            alert('You chose: Rock.');  
         } else if(playerAnswerLC == 'paper') {
          alert('You chose: Paper.');
         } else if(playerAnswerLC == 'scissors') {

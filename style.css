@@ -1,8 +1,54 @@
 .rock {
-
-}
+    position: absolute;
+    top: 50%;
+    left: 30%;
+    padding: 10px 25px 10px 25px;
+    margin: 0px;
+    background-color: white;
+    color: red;
+    font-family: 'Segoe UI', Tahoma, Verdana, sans-serif;
+    font-size: 250%;
+    border: 5px solid red;
+    border-radius: 15px;
+} 
 
 .paper {
-    display: flex;
-    justify-content: center;
+    position: absolute;
+    text-align: center;
+    top: 50%;
+    left: 45%;
+    padding: 10px 25px 10px 25px;
+    margin: auto;
+    background-color: white;
+    color: blue;
+    font-family: 'Segoe UI', Tahoma, Verdana, sans-serif;
+    font-size: 250%;
+    border: 5px solid blue;
+    border-radius: 15px;
 } 
+
+.scissors {
+    position: absolute;
+    top: 50%;
+    left: 60%;
+    padding: 10px 25px 10px 25px;
+    margin: 0px;
+    background-color: white;
+    color: green;
+    font-family: 'Segoe UI', Tahoma, Verdana, sans-serif;
+    font-size: 250%;
+    border: 5px solid green;
+    border-radius: 15px;
+} 
+
+.rock:hover {
+    cursor: pointer;
+}
+
+.paper:hover {
+    cursor: pointer;
+}
+
+.scissors:hover {
+    cursor: pointer;
+}
