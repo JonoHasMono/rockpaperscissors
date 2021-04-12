@@ -1,24 +1,28 @@
-const choices = ["rock", "paper", "scissors"];
-const questionPlayer = `Rock, paper, or scissors?`;
-
-function singleGame(playerChoice, computerChoice) {
-    let playerChoice = ""
-    let computerChoice = Math.floor(Math.random() * choices.length);
+let playerChoice = "";
+let computerChoice = "";
+function computerPlay() {
+    let randomNum = Math.ceil(Math.random()*3);
+    if(randomNum == 1){
+        computerChoice = "Rock";
+    } else if(randomnum == 2) {
+        computerChoice = "Paper";
+    } else {
+        computerChoice = "Scissors";
+    }
 }
 
-//let playerAnswer = prompt(questionPlayer);
+
+function singleGame() {
+    alert("Computer chose: " + computerChoice);
+    if(playerChoice == computerChoice) {
+        alert("You guys tied? Lame.");
+    } else {
+        alert("Nice");
+    }
+}
 
 
 function rockClicked() {
-    playerChoice = "Rock"
-    alert("You chose: Rock.")
+    playerChoice = "Rock";
+    singleGame();
 }
-
-
-
-    // Causes the computer to make a random choice
-    function computerPlay() {
-        const randomChoice = Math.floor(Math.random() * choices.length);
-    
-       alert(choices[randomChoice]);
-    }
