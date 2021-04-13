@@ -11,6 +11,7 @@
     border: 5px solid red;
     border-radius: 15px;
     -webkit-transform: translate(-50%, -50%);
+    user-select: none;
 } 
 
 .paper {
@@ -27,6 +28,7 @@
     border: 5px solid blue;
     border-radius: 15px;
     -webkit-transform: translate(-50%, -50%);
+    user-select: none;
 } 
 
 .scissors {
@@ -42,6 +44,7 @@
     border: 5px solid green;
     border-radius: 15px;
     -webkit-transform: translate(-50%, -50%);
+    user-select: none;
 } 
 
 .rock:hover {
@@ -66,8 +69,4 @@
     padding: 15px 30px 15px 30px;
     font-weight: bold;
     border: 10px solid green;
-}
-
-.rockChosen {
-    
 }
