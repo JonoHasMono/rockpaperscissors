@@ -17,18 +17,70 @@ function computerPlay() {
 
 function singleGame() {
     computerPlay();
-    alert("Computer chose: " + computerChoice);
-    alert("You chose: " + playerChoice);
-    if(playerChoice == computerChoice) {
-        alert("You guys tied? Lame.");
-        computerChoice = "";
+    if(playerChoice == "Glock") {
+        document.getElementById("demo").innerHTML = glockOutcomes();
+    } else if(playerChoice == "Rock") {
+        document.getElementById("demo").innerHTML =  rockOutcomes();
+    } else if(playerChoice == "Paper") {
+        document.getElementById("demo").innerHTML =  paperOutcomes();
     } else {
-        alert("Nice");
-        computerChoice = "";
-
+        document.getElementById("demo").innerHTML = scissorsOutcomes();
     }
-    playerChoice = "";
 }
+
+function rockOutcomes() {
+    if(computerChoice == "Rock") {
+        
+        
+        
+    return "Opponent chose Rock, you tied";
+    } else if(computerChoice == "Paper") {
+        
+    return "Opponent chose Paper, you lost";
+    } else {
+        
+    return "Opponent chose Scissors, you won";
+    }
+    computerChoice = ""
+    playerChoice = ""
+}
+
+function paperOutcomes() {
+    if(computerChoice == "Paper") {
+        
+    return "Opponent chose Paper, you tied";
+    } else if(computerChoice == "Scissors") {
+        
+    return "Opponent chose Scissors, you lost";
+    } else {
+        
+    return "Opponent chose Rock, you won";
+    }
+    computerChoice = ""
+    playerChoice = ""
+}
+
+function scissorsOutcomes() {
+    if(computerChoice == "Scissors") {
+        
+    return "Opponent chose Scissors, you tied";
+    } else if(computerChoice == "Rock") {
+        
+    return "Opponent chose Rock, you lost";
+    } else {
+        
+    return "Opponent chose Paper, you won";
+    }
+    computerChoice = ""
+    playerChoice = ""
+}
+
+function glockOutcomes() {
+    return "You shot your opponent 8 times, you won";
+    computerChoice = ""
+    playerChoice = ""
+}
+
 
 
 function rockClicked() {
@@ -43,5 +95,10 @@ function paperClicked() {
 
 function scissorsClicked() {
     playerChoice = "Scissors";
+    singleGame();
+}
+
+function glockClicked() {
+    playerChoice = "Glock"
     singleGame();
 }

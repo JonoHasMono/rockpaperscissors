@@ -70,3 +70,43 @@
     font-weight: bold;
     border: 10px solid green;
 }
+
+.glock {
+    position: absolute;
+    opacity: 0;
+    bottom: 3%;
+    left: 6%;
+    padding: 10px 25px 10px 25px;
+    margin: 0px;
+    background-color: white;
+    color: rgb(150, 0, 255);
+    font-family: 'Segoe UI', Tahoma, Verdana, sans-serif;
+    font-size: 250%;
+    border: 5px solid rgb(150, 0, 255);
+    border-radius: 15px;
+    -webkit-transform: translate(-50%, -50%);
+    user-select: none;
+}
+
+.glock:hover {
+    cursor: pointer;
+    font-size: 200%;
+    padding: 15px 30px 15px 30px;
+    border: 10x solid rgb(150, 0, 255);
+    opacity: 1;
+    font-weight: bold;
+}
+
+.result {
+    position: absolute;
+    -webkit-transform: translate(-50%, -50%);
+    top: 30%;
+    left: 50%;
+    font-family: 'Segoe UI', Tahoma, Verdana, sans-serif;
+    color: white;
+    font-size: 300%;
+    font-weight: bold;
+    -webkit-text-stroke: 3px black;
+    width: 100%;
+    text-align: center;
+}
