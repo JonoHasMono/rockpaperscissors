@@ -10,7 +10,7 @@
     font-size: 250%;
     border: 5px solid red;
     border-radius: 15px;
-    -webkit-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
     user-select: none;
 } 
 
@@ -27,7 +27,7 @@
     font-size: 250%;
     border: 5px solid blue;
     border-radius: 15px;
-    -webkit-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
     user-select: none;
 } 
 
@@ -43,7 +43,7 @@
     font-size: 250%;
     border: 5px solid green;
     border-radius: 15px;
-    -webkit-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
     user-select: none;
 } 
 
@@ -84,7 +84,7 @@
     font-size: 250%;
     border: 5px solid rgb(150, 0, 255);
     border-radius: 15px;
-    -webkit-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
     user-select: none;
 }
 
@@ -99,7 +99,7 @@
 
 .result {
     position: absolute;
-    -webkit-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
     top: 30%;
     left: 50%;
     font-family: 'Segoe UI', Tahoma, Verdana, sans-serif;
@@ -109,4 +109,50 @@
     -webkit-text-stroke: 3px black;
     width: 100%;
     text-align: center;
+    user-select: none;
+}
+
+.freePoint {
+    position: absolute;
+    transform: translate(-50%, -50%);
+    top: 15%;
+    left: 50%;
+    font-family: 'Segoe UI', Tahoma, Verdana, sans-serif;
+    color: white;
+    font-size: 200%;
+    font-weight: bold;
+    -webkit-text-stroke: 2px black;
+    width: 100%;
+    text-align: center;
+    user-select: none;
+}
+
+.score {
+    position: absolute;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    user-select: none;
+    top: 75%;
+    left: 50%;
+    font-family: 'Segoe UI', Tahoma, Verdana, sans-serif;
+    color: white;
+    font-size: 300%;
+    font-weight: bold;
+    -webkit-text-stroke: 3px black;
+    width: 100%;
+}
+
+.shop {
+    position: absolute;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    user-select: none;
+    bottom: 15%;
+    left: 80%;
+    font-family: 'Segoe UI', Tahoma, Verdana, sans-serif;
+    color: white;
+    font-size: 300%;
+    font-weight: bold;
+    -webkit-text-stroke: 3px black;
+    width: 100%;
 }

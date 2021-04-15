@@ -8,24 +8,29 @@
 </head>
 <body>
 
-
+    <!-- Rock, Paper, and Scissors elements -->
     <div>
         <span onclick="rockClicked()" class="rock" onmouseout="body.style.background='#FFFFFF';" onmouseover="body.style.background='#FFBBBB';">Rock</span>
         <span onclick="paperClicked()" class="paper" onmouseout="body.style.background='#FFFFFF';" onmouseover="body.style.background='#BBBBFF';">Paper</span>
         <span onclick="scissorsClicked()" class="scissors" onmouseout="body.style.background='#FFFFFF';" onmouseover="body.style.background='#BBFFBB';">Scissors</span>
     </div>
+
+    <!-- Glock element (Super secret!) -->
     <div>
         <a onclick="glockClicked()" onmouseout="body.style.background='#FFFFFF';" onmouseover="body.style.background='#DDBBFF';"class="glock">Glock</a>
     </div>
-    <p id="demo" class ="result"></p>
 
+    <!-- Result and luck text at the top, and score number at the bottom -->
+    <p id="demo" class="result"></p>
+    <p id="freePoint" class="freePoint"></p>
+    <p id="score" class="score"></p>
 
+    <!--! {PURELY EXPERIMENTAL} -->
+    <!--*TODO: Add a shop system at the bottom right-->
+
+    <!-- Shop elements-->
+    <p class="shop">Shop</p>
 
     <script src="script.js"></script>
-
-    <script>
-        
-    </script>
-
 </body>
 </html>
