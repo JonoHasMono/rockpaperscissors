@@ -193,3 +193,21 @@
 .itemDescOne:hover {
     opacity: 1;
 }
+
+.itemOneCost {
+    opacity: 1;
+    position: absolute;
+    transform: translate(-50%, -100%);
+    text-align: center;
+    user-select: none;
+    bottom: -2%;
+    left: 65%;
+    font-family: 'Segoe UI', Tahoma, Verdana, sans-serif;
+    color: white;
+    font-size: 200%;
+    font-weight: bold;
+    -webkit-text-stroke: 2px black;
+    width: 30%;
+    padding: 0px 0px 0px 0px;
+    margin: auto;
+}

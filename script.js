@@ -3,6 +3,12 @@ let computerChoice = "";
 let score = 0
 let bonusPoints = 1
 let bonusChance = 0.25
+let upgradeOneCount = 1
+let itemOneCost = Math.floor(250 * (2 ** upgradeOneCount) * 0.1)
+
+showUpgrades()
+upgradeFunctions
+
 function computerPlay() {
     let randomNum = Math.ceil(Math.random() * 3)
     if(randomNum == 1) {
@@ -16,6 +22,17 @@ function computerPlay() {
         return "Scissors";
     }
 }
+
+function showUpgrades() {
+    document.getElementById("itemOnePrice").innerHTML = upgradeOneCost();
+}
+
+function upgradeOneCost() {
+    return "Price: " + itemOneCost;
+}
+
+function upgradeFunctions
+
 
 function bonusChanceRoll() {
     let randomBonus = Math.random()
