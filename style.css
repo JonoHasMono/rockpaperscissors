@@ -156,3 +156,40 @@
     -webkit-text-stroke: 3px black;
     width: 100%;
 }
+
+.itemOne {
+    position: absolute;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    user-select: none;
+    bottom: -5%;
+    left: 65%;
+    font-family: 'Segoe UI', Tahoma, Verdana, sans-serif;
+    color: white;
+    font-size: 400%;
+    font-weight: bold;
+    -webkit-text-stroke: 3px black;
+    width: 100%;
+}
+
+.itemDescOne {
+    opacity: 0;
+    position: absolute;
+    transform: translate(-50%, -100%);
+    text-align: center;
+    user-select: none;
+    bottom: -15%;
+    left: 65%;
+    font-family: 'Segoe UI', Tahoma, Verdana, sans-serif;
+    color: white;
+    font-size: 200%;
+    font-weight: bold;
+    -webkit-text-stroke: 2px black;
+    width: 30%;
+    padding: 0px 0px 120px 0px;
+    margin: auto;
+}
+
+.itemDescOne:hover {
+    opacity: 1;
+}
