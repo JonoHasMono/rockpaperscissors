@@ -154,7 +154,8 @@
     font-size: 300%;
     font-weight: bold;
     -webkit-text-stroke: 3px black;
-    width: 100%;
+    width: 20%;
+    
 }
 
 .itemOne {
@@ -169,7 +170,24 @@
     font-size: 400%;
     font-weight: bold;
     -webkit-text-stroke: 3px black;
-    width: 100%;
+    width: 20%;
+    
+}
+
+.itemTwo {
+    position: absolute;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    user-select: none;
+    bottom: -5%;
+    left: 85%;
+    font-family: 'Segoe UI', Tahoma, Verdana, sans-serif;
+    color: white;
+    font-size: 400%;
+    font-weight: bold;
+    -webkit-text-stroke: 3px black;
+    width: 20%;
+    
 }
 
 .itemDescOne {
@@ -194,6 +212,29 @@
     opacity: 1;
 }
 
+.itemDescTwo {
+    opacity: 0;
+    position: absolute;
+    transform: translate(-50%, -100%);
+    text-align: center;
+    user-select: none;
+    bottom: -15%;
+    left: 85%;
+    font-family: 'Segoe UI', Tahoma, Verdana, sans-serif;
+    color: white;
+    font-size: 200%;
+    font-weight: bold;
+    -webkit-text-stroke: 2px black;
+    width: 30%;
+    padding: 0px 0px 120px 0px;
+    margin: auto;
+    
+}
+
+.itemDescTwo:hover {
+    opacity: 1;
+}
+
 .itemOneCost {
     opacity: 1;
     position: absolute;
@@ -204,6 +245,42 @@
     left: 65%;
     font-family: 'Segoe UI', Tahoma, Verdana, sans-serif;
     color: white;
+    font-size: 200%;
+    font-weight: bold;
+    -webkit-text-stroke: 2px black;
+    width: 30%;
+    padding: 0px 0px 0px 0px;
+    margin: auto;
+}
+
+.itemTwoCost {
+    opacity: 1;
+    position: absolute;
+    transform: translate(-50%, -100%);
+    text-align: center;
+    user-select: none;
+    bottom: -2%;
+    left: 85%;
+    font-family: 'Segoe UI', Tahoma, Verdana, sans-serif;
+    color: white;
+    font-size: 200%;
+    font-weight: bold;
+    -webkit-text-stroke: 2px black;
+    width: 30%;
+    padding: 0px 0px 0px 0px;
+    margin: auto;
+}
+
+.broke {
+    opacity: 0;
+    position: absolute;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    user-select: none;
+    top: 50%;
+    left: 50%;
+    font-family: 'Segoe UI', Tahoma, Verdana, sans-serif;
+    color: red;
     font-size: 200%;
     font-weight: bold;
     -webkit-text-stroke: 2px black;

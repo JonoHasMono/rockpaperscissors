@@ -4,10 +4,12 @@ let score = 0
 let bonusPoints = 1
 let bonusChance = 0.25
 let upgradeOneCount = 1
+let upgradeTwoCount = 1
 let itemOneCost = Math.floor(250 * (2 ** upgradeOneCount) * 0.1)
+let itemTwoCost = Math.floor(250 * (3 ** upgradeTwoCount) * 0.1)
 
-showUpgrades()
-upgradeFunctions
+showUpgrades();
+
 
 function computerPlay() {
     let randomNum = Math.ceil(Math.random() * 3)
@@ -25,14 +27,16 @@ function computerPlay() {
 
 function showUpgrades() {
     document.getElementById("itemOnePrice").innerHTML = upgradeOneCost();
+    document.getElementById("itemTwoPrice").innerHTML = upgradeTwoCost();
 }
 
 function upgradeOneCost() {
     return "Price: " + itemOneCost;
 }
 
-function upgradeFunctions
-
+function upgradeTwoCost() {
+    return "Price: " + itemTwoCost;
+}
 
 function bonusChanceRoll() {
     let randomBonus = Math.random()
@@ -45,11 +49,11 @@ function bonusChanceRoll() {
 }
 
 function freePoint() {
-    return score = score + 1
+    return score = score + bonusPoints
 }
 
 function freePointText() {
-    return "Lucky!"
+    return "Lucky!";
 }
 
 function singleGame() {
@@ -164,7 +168,7 @@ function glockOutcomes() {
 }
 
 function glockScores() {
-    return score = score + 1;
+    return score = score + 5;
 }
 
 
@@ -185,6 +189,40 @@ function scissorsClicked() {
 }
 
 function glockClicked() {
-    playerChoice = "Glock"
+    playerChoice = "Glock";
     singleGame();
+}
+
+function youreBroke() {
+    document.getElementById("broke").innerHTML = `Sorry you're broke`;
+}
+
+function youreBrokeClear() {
+    document.getElementById("broke").innerHTML = `e`;
+}
+
+function upgradeOne() {
+    if(score >= itemOneCost) {
+        bonusChance += 0.05;
+        score = score - itemOneCost;
+        upgradeOneCount = upgradeOneCount + 1;
+        itemOneCost = Math.floor(250 * (2 ** upgradeOneCount) * 0.1)
+        document.getElementById("score").innerHTML = score;
+        document.getElementById("itemOnePrice").innerHTML = "Price: " + itemOneCost;
+    } else {
+        alert("You're broke");
+    }
+}
+
+function upgradeTwo() {
+    if(score >= itemTwoCost) {
+        bonusPoints += 0.05;
+        score = score - itemTwoCost;
+        upgradeTwoCount = upgradeTwoCount + 1;
+        itemTwoCost = Math.floor(250 * (3 ** upgradeTwoCount) * 0.1)
+        document.getElementById("score").innerHTML = score;
+        document.getElementById("itemTwoPrice").innerHTML = "Price: " + itemTwoCost;
+    } else {
+        alert("You're broke");
+    }
 }
