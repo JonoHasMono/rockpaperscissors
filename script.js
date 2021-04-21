@@ -196,9 +196,16 @@ function glockClicked() {
 }
 
 function youreBroke() {
-    let brokeValue = Math.ceil((Math.random) * 3)
-    if(brokeValue >= 3) {
-        
+    let brokeValue = Math.ceil(Math.random() * 3);
+    if(brokeValue == 1) {
+        document.getElementById("broke").innerHTML = "Sorry you're broke";
+        setTimeout(() => {document.getElementById("broke").innerHTML = ""}, 1000);
+    } else if(brokeValue == 2) {
+        document.getElementById("broke").innerHTML = "Haha no money";
+        setTimeout(() => {document.getElementById("broke").innerHTML = ""}, 1000);
+    } else {
+        document.getElementById("broke").innerHTML = "Stop it.";
+        setTimeout(() => {document.getElementById("broke").innerHTML = ""}, 1000);
     }
 }
 
@@ -230,6 +237,6 @@ function upgradeTwo() {
         document.getElementById("itemTwoPrice").innerHTML = "Price: " + itemTwoCost;
         document.getElementById("score").innerHTML = scoreCommas();
     } else {
-        
+        youreBroke();
     }
 }
