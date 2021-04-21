@@ -53,13 +53,12 @@ function freePoint() {
 }
 
 function freePointText() {
+    setTimeout(() => {document.getElementById("freePoint").innerHTML = ""}, 1000);
     return "Lucky!";
 }
 
 function singleGame() {
     computerPlay();
-    bonusChanceRoll();
-
     if(playerChoice == "Glock") {
         document.getElementById("demo").innerHTML = glockOutcomes();
         document.getElementById("score").innerHTML = glockScores();
@@ -73,6 +72,8 @@ function singleGame() {
         document.getElementById("demo").innerHTML = scissorsOutcomes();
         document.getElementById("score").innerHTML = scissorsScores();
     }
+
+    document.getElementById("score").innerHTML = scoreCommas();
 }
 
 function rockOutcomes() {
@@ -81,6 +82,7 @@ function rockOutcomes() {
     } else if(computerChoice == "Paper") {
     return "You lost";
     } else {
+    bonusChanceRoll();
     return "You won";
     }
     computerChoice = ""
@@ -110,7 +112,7 @@ function paperOutcomes() {
         
     return "You lost";
     } else {
-        
+    bonusChanceRoll();
     return "You won";
     }
     computerChoice = ""
@@ -139,7 +141,7 @@ function scissorsOutcomes() {
         
     return "You lost";
     } else {
-        
+    bonusChanceRoll();
     return "You won";
     }
     computerChoice = ""
@@ -168,7 +170,7 @@ function glockOutcomes() {
 }
 
 function glockScores() {
-    return score = score + 5;
+    return score = score + 500000;
 }
 
 
@@ -194,11 +196,14 @@ function glockClicked() {
 }
 
 function youreBroke() {
-    document.getElementById("broke").innerHTML = `Sorry you're broke`;
+    let brokeValue = Math.ceil((Math.random) * 3)
+    if(brokeValue >= 3) {
+        
+    }
 }
 
-function youreBrokeClear() {
-    document.getElementById("broke").innerHTML = `e`;
+function scoreCommas() {
+    return score.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
 }
 
 function upgradeOne() {
@@ -209,20 +214,22 @@ function upgradeOne() {
         itemOneCost = Math.floor(250 * (2 ** upgradeOneCount) * 0.1)
         document.getElementById("score").innerHTML = score;
         document.getElementById("itemOnePrice").innerHTML = "Price: " + itemOneCost;
+        document.getElementById("score").innerHTML = scoreCommas();
     } else {
-        alert("You're broke");
+        youreBroke();
     }
 }
 
 function upgradeTwo() {
     if(score >= itemTwoCost) {
-        bonusPoints += 1;
+        bonusPoints += bonusPoints;
         score = score - itemTwoCost;
         upgradeTwoCount = upgradeTwoCount + 1;
         itemTwoCost = Math.floor(250 * (3 ** upgradeTwoCount) * 0.1)
         document.getElementById("score").innerHTML = score;
         document.getElementById("itemTwoPrice").innerHTML = "Price: " + itemTwoCost;
+        document.getElementById("score").innerHTML = scoreCommas();
     } else {
-        alert("You're broke");
+        
     }
 }

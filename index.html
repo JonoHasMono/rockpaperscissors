@@ -5,19 +5,24 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <link rel="stylesheet" href="style.css">
+    <style>
+        body {
+            background-color: #CCCCCC;
+        }
+    </style>
 </head>
 <body>
 
     <!-- Rock, Paper, and Scissors elements -->
     <div>
-        <span onclick="rockClicked()" class="rock" onmouseout="body.style.background='#FFFFFF';" onmouseover="body.style.background='#FFBBBB';">Rock</span>
-        <span onclick="paperClicked()" class="paper" onmouseout="body.style.background='#FFFFFF';" onmouseover="body.style.background='#BBBBFF';">Paper</span>
-        <span onclick="scissorsClicked()" class="scissors" onmouseout="body.style.background='#FFFFFF';" onmouseover="body.style.background='#BBFFBB';">Scissors</span>
+        <span onclick="rockClicked()" class="rock" onmouseout="body.style.background='#CCCCCC';" onmouseover="body.style.background='#DDA0A0';">Rock</span>
+        <span onclick="paperClicked()" class="paper" onmouseout="body.style.background='#CCCCCC';" onmouseover="body.style.background='#A0A0DD';">Paper</span>
+        <span onclick="scissorsClicked()" class="scissors" onmouseout="body.style.background='#CCCCCC';" onmouseover="body.style.background='#A0BBA0';">Scissors</span>
     </div>
 
     <!-- Glock element (Super secret!) -->
     <div>
-        <a onclick="glockClicked()" onmouseout="body.style.background='#FFFFFF';" onmouseover="body.style.background='#DDBBFF';"class="glock">Glock</a>
+        <a onclick="glockClicked()" onmouseout="body.style.background='#CCCCCC';" onmouseover="body.style.background='#BBA0DD';"class="glock">Glock</a>
     </div>
 
     <!-- Result and luck text at the top, and score number at the bottom -->
@@ -30,6 +35,8 @@
 
     <!-- Shop elements-->
     <p class="shop">Shop</p>
+
+    <p id="broke" class="broke"></p>
 
     <p onclick="upgradeOne()" id="itemOne" class="itemOne">:)</p>
     <p onclick="upgradeOne()" class="itemDescOne">Increase your luck by 5%</p>
