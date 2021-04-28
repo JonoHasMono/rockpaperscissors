@@ -1,12 +1,37 @@
 let playerChoice = "";
 let computerChoice = "";
-let score = 0
-let bonusPoints = 1
-let bonusChance = 0.25
-let upgradeOneCount = 1
-let upgradeTwoCount = 1
-let itemOneCost = Math.floor(250 * (2 ** upgradeOneCount) * 0.1)
-let itemTwoCost = Math.floor(250 * (3 ** upgradeTwoCount) * 0.1)
+let score = 0;
+
+let bonusPoints = 1;
+let bonusChance = 0.25;
+
+let upgradeOneCount = 1;
+let upgradeTwoCount = 1;
+let upgradeThreeCount = 1;
+let upgradeFourCount = 1;
+let upgradeFiveCount = 1;
+
+let itemOneCost = Math.floor(100 * (2 ** upgradeOneCount) * 0.1);
+let itemTwoCost = Math.floor(50 * (3 ** upgradeTwoCount) * 0.1);
+let itemThreeCost = Math.floor(100 * (2 ** upgradeThreeCount) * 0.2);
+let itemFourCost = Math.floor(100 * (2 ** upgradeFourCount) * 0.2);
+let itemFiveCost = Math.floor(100 * (2 ** upgradeFiveCount) * 0.2);
+
+const body = document.getElementById("#body");
+
+document.addEventListener('keyup', logKey);
+
+function logKey(e) {
+    let key = ` ${e.code}`
+    key = key.toString();
+    if (key == ' KeyQ') {
+        rockClicked();
+      } else if (key == ' KeyW') {
+          paperClicked();
+      } else if (key == ' KeyE') {
+          scissorsClicked();
+      }
+}
 
 showUpgrades();
 
@@ -28,6 +53,9 @@ function computerPlay() {
 function showUpgrades() {
     document.getElementById("itemOnePrice").innerHTML = upgradeOneCost();
     document.getElementById("itemTwoPrice").innerHTML = upgradeTwoCost();
+    document.getElementById("itemThreePrice").innerHTML = upgradeThreeCost();
+    document.getElementById("itemFourPrice").innerHTML = upgradeFourCost();
+    document.getElementById("itemFivePrice").innerHTML = upgradeFiveCost();
 }
 
 function upgradeOneCost() {
@@ -37,6 +65,19 @@ function upgradeOneCost() {
 function upgradeTwoCost() {
     return "Price: " + itemTwoCost;
 }
+
+function upgradeThreeCost() {
+    return "Price: " + itemThreeCost;
+}
+
+function upgradeFourCost() {
+    return "Price: " + itemFourCost;
+}
+
+function upgradeFiveCost() {
+    return "Price: " + itemFiveCost;
+}
+
 
 function bonusChanceRoll() {
     let randomBonus = Math.random()
@@ -100,7 +141,7 @@ function rockScores() {
              }
     return score = score - 1;
     } else {
-    return score = score + bonusPoints;
+    return score = score + bonusPoints + (upgradeThreeCount - 1);
     }
 }
 
@@ -218,7 +259,7 @@ function upgradeOne() {
         bonusChance += 0.05;
         score = score - itemOneCost;
         upgradeOneCount = upgradeOneCount + 1;
-        itemOneCost = Math.floor(250 * (2 ** upgradeOneCount) * 0.1)
+        itemOneCost = Math.floor(100 * (2 ** upgradeOneCount) * 0.1);
         document.getElementById("score").innerHTML = score;
         document.getElementById("itemOnePrice").innerHTML = "Price: " + itemOneCost;
         document.getElementById("score").innerHTML = scoreCommas();
@@ -232,7 +273,7 @@ function upgradeTwo() {
         bonusPoints += bonusPoints;
         score = score - itemTwoCost;
         upgradeTwoCount = upgradeTwoCount + 1;
-        itemTwoCost = Math.floor(250 * (3 ** upgradeTwoCount) * 0.1)
+        itemTwoCost = Math.floor(50 * (3 ** upgradeTwoCount) * 0.1);
         document.getElementById("score").innerHTML = score;
         document.getElementById("itemTwoPrice").innerHTML = "Price: " + itemTwoCost;
         document.getElementById("score").innerHTML = scoreCommas();
@@ -240,3 +281,55 @@ function upgradeTwo() {
         youreBroke();
     }
 }
+
+function upgradeThree() {
+    if(score >= itemThreeCost) {
+        score = score - itemThreeCost;
+        upgradeThreeCount = upgradeThreeCount + 1;
+        itemThreeCost = Math.floor(100 * (2 ** upgradeThreeCount) * 0.2);
+        document.getElementById("score").innerHTML = score;
+        document.getElementById("itemThreePrice").innerHTML = "Price: " + itemThreeCost;
+        document.getElementById("score").innerHTML = scoreCommas();
+    } else {
+        youreBroke();
+    }
+}
+
+function upgradeFour() {
+    if(score >= itemFourCost) {
+        score = score - itemFourCost;
+        upgradeFourCount = upgradeFourCount + 1;
+        itemFourCost = Math.floor(100 * (2 ** upgradeFourCount) * 0.2);
+        document.getElementById("score").innerHTML = score;
+        document.getElementById("itemFourPrice").innerHTML = "Price: " + itemFourCost;
+        document.getElementById("score").innerHTML = scoreCommas();
+    } else {
+        youreBroke();
+    }
+}
+
+function upgradeFive() {
+    if(score >= itemFiveCost) {
+        score = score - itemFiveCost;
+        upgradeFiveCount = upgradeFiveCount + 1;
+        itemFiveCost = Math.floor(100 * (2 ** upgradeFiveCount) * 0.2);
+        document.getElementById("score").innerHTML = score;
+        document.getElementById("itemFivePrice").innerHTML = "Price: " + itemFiveCost;
+        document.getElementById("score").innerHTML = scoreCommas();
+    } else {
+        youreBroke();
+    }
+}
+
+
+// let input = document.getElementById("keyspam");
+
+// Execute a function when the user releases a key on the keyboard
+// input.addEventListener("keyup", function(event) {
+//    if (event.keyCode === 81) {
+//       rockClicked();
+//    } else if (event.keyCode === 87) {
+//        paperClicked();
+//    } else if (event.keyCode === 69) {
+//        scissorsClicked();
+//  }});

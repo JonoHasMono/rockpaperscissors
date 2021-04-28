@@ -15,9 +15,9 @@
 
     <!-- Rock, Paper, and Scissors elements -->
     <div>
-        <span onclick="rockClicked()" class="rock" onmouseout="body.style.background='#CCCCCC';" onmouseover="body.style.background='#DDA0A0';">Rock</span>
-        <span onclick="paperClicked()" class="paper" onmouseout="body.style.background='#CCCCCC';" onmouseover="body.style.background='#A0A0DD';">Paper</span>
-        <span onclick="scissorsClicked()" class="scissors" onmouseout="body.style.background='#CCCCCC';" onmouseover="body.style.background='#A0BBA0';">Scissors</span>
+        <span id="rock" onclick="rockClicked()" class="rock" onmouseout="body.style.background='#CCCCCC';" onmouseover="body.style.background='#DDA0A0';">Rock</span>
+        <span id="paper" onclick="paperClicked()" class="paper" onmouseout="body.style.background='#CCCCCC';" onmouseover="body.style.background='#A0A0DD';">Paper</span>
+        <span id="scissors" onclick="scissorsClicked()" class="scissors" onmouseout="body.style.background='#CCCCCC';" onmouseover="body.style.background='#A0BBA0';">Scissors</span>
     </div>
 
     <!-- Glock element (Super secret!) -->
@@ -47,8 +47,16 @@
     <p id="itemTwoPrice" class="itemTwoCost"></p>
 
     <p onclick="upgradeThree()" id="itemThree" class="itemThree">R</p>
-    <p onclick="upgradeThree()" class="itemDescThree">Test Description Bottom Text</p>
-    <p id="itemThreePrice" class="itemThreeCost">Test Price</p>
+    <p onclick="upgradeThree()" class="itemDescThree">Increase your rock's weight</p>
+    <p id="itemThreePrice" class="itemThreeCost"></p>
+
+    <p onclick="upgradeFour()" id="itemFour" class="itemFour">P</p>
+    <p onclick="upgradeFour()" class="itemDescFour">Increase your paper's size</p>
+    <p id="itemFourPrice" class="itemFourCost"></p>
+
+    <p onclick="upgradeFive()" id="itemFive" class="itemFive">S</p>
+    <p onclick="upgradeFive()" id="itemFive" class="itemDescFive">Increase your scissors' sharpness</p>
+    <p id="itemFivePrice" class="itemFiveCost"></p>
 
     <script src="script.js"></script>
 </body>
