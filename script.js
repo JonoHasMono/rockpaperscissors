@@ -11,15 +11,19 @@ let upgradeThreeCount = 1;
 let upgradeFourCount = 1;
 let upgradeFiveCount = 1;
 let upgradeSixCount = 1;
+let upgradeSevenCount = 1;
+let upgradeEightCount = 1;
 
 let itemOneCost = Math.floor(100 * (2 ** upgradeOneCount) * 0.1);
 let itemTwoCost = Math.floor(50 * (3 ** upgradeTwoCount) * 0.1);
 let itemThreeCost = Math.floor(100 * (2 ** upgradeThreeCount) * 0.2);
 let itemFourCost = Math.floor(100 * (2 ** upgradeFourCount) * 0.2);
 let itemFiveCost = Math.floor(100 * (2 ** upgradeFiveCount) * 0.2);
-let itemSixCost = 10000;
+let itemSixCost = 10000; let itemSevenCost = 10000; let itemEightCost = 10000;
 
-let upgradeSixDelay = 100;
+let upgradeSixDelay = 200;
+let upgradeSevenDelay = 200;
+let upgradeEightDelay = 200;
 
 const body = document.getElementById("#body");
 
@@ -61,6 +65,8 @@ function showUpgrades() {
     document.getElementById("itemFourPrice").innerHTML = upgradeFourCost();
     document.getElementById("itemFivePrice").innerHTML = upgradeFiveCost();
     document.getElementById("itemSixPrice").innerHTML = upgradeSixCost();
+    document.getElementById("itemSevenPrice").innerHTML = upgradeSevenCost();
+    document.getElementById("itemEightPrice").innerHTML = upgradeEightCost();
 }
 
 function upgradeOneCost() {
@@ -85,6 +91,14 @@ function upgradeFiveCost() {
 
 function upgradeSixCost() {
     return "Price: " + itemSixCost;
+}
+
+function upgradeSevenCost() {
+    return "Price: " + itemSevenCost;
+}
+
+function upgradeEightCost() {
+    return "Price: " + itemEightCost;
 }
 
 function bonusChanceRoll() {
@@ -332,17 +346,84 @@ function upgradeFive() {
 
 function upgradeSix() {
     if(score >= itemSixCost) {
-        score = score - itemSixCost;
-        upgradeSixCount = upgradeSixCount + 1;
-        document.getElementById("score").innerHTML = score;
-        document.getElementById("itemSixPrice").innerHTML = "Price: " + itemSixCost;
-        document.getElementById("score").innerHTML = scoreCommas();
-        autoRock();
-        upgradeSixLock();
-    } else {
-        youreBroke();
+        if(upgradeSixCount == 1) {
+            score = score - itemSixCost;
+            upgradeSixCount = upgradeSixCount + 1;
+            document.getElementById("score").innerHTML = score;
+            itemSixCost = itemSixCost * 5;
+            document.getElementById("itemSixPrice").innerHTML = "Price: " + itemSixCost;
+            document.getElementById("score").innerHTML = scoreCommas();
+            autoRock();
+        } else if(upgradeSixCount == 2) {
+            score = score - itemSixCost;
+            upgradeSixCount = upgradeSixCount + 1;
+            document.getElementById("score").innerHTML = score;
+            document.getElementById("score").innerHTML = scoreCommas();
+            upgradeSixDelay = upgradeSixDelay / 2;
+            document.getElementById("itemSixPrice").innerHTML = "Upgrade Maxed";
+            itemSixCost = Infinity;
+        } else {
+
+        }
+        } else {
+            youreBroke();
+        }
     }
-}
+
+    function upgradeSeven() {
+        if(score >= itemSevenCost) {
+            if(upgradeSevenCount == 1) {
+                score = score - itemSevenCost;
+                upgradeSevenCount = upgradeSevenCount + 1;
+                document.getElementById("score").innerHTML = score;
+                itemSevenCost = itemSevenCost * 5;
+                document.getElementById("itemSevenPrice").innerHTML = "Price: " + itemSevenCost;
+                document.getElementById("score").innerHTML = scoreCommas();
+                autoPaper();
+            } else if(upgradeSevenCount == 2) {
+                score = score - itemSevenCost;
+                upgradeSevenCount = upgradeSevenCount + 1;
+                document.getElementById("score").innerHTML = score;
+                document.getElementById("score").innerHTML = scoreCommas();
+                upgradeSevenDelay = upgradeSevenDelay / 2;
+                document.getElementById("itemSevenPrice").innerHTML = "Upgrade Maxed";
+                itemSevenCost = Infinity;
+            } else {
+    
+            }
+            } else {
+                youreBroke();
+            }
+        }
+
+        
+        function upgradeEight() {
+            if(score >= itemEightCost) {
+                if(upgradeEightCount == 1) {
+                    score = score - itemEightCost;
+                    upgradeEightCount = upgradeEightCount + 1;
+                    document.getElementById("score").innerHTML = score;
+                    itemEightCost = itemEightCost * 5;
+                    document.getElementById("itemEightPrice").innerHTML = "Price: " + itemEightCost;
+                    document.getElementById("score").innerHTML = scoreCommas();
+                    autoScissors();
+                } else if(upgradeEightCount == 2) {
+                    score = score - itemEightCost;
+                    upgradeEightCount = upgradeEightCount + 1;
+                    document.getElementById("score").innerHTML = score;
+                    document.getElementById("score").innerHTML = scoreCommas();
+                    upgradeEightDelay = upgradeEightDelay / 2;
+                    document.getElementById("itemEightPrice").innerHTML = "Upgrade Maxed";
+                    itemEightCost = Infinity;
+                } else {
+        
+                }
+                } else {
+                    youreBroke();
+                }
+            }
+        
+
 
 function upgradeOneLock() {
     if (bonusChance >= 1) {
@@ -351,17 +432,12 @@ function upgradeOneLock() {
     }
 }
 
-function upgradeSixLock() {
-    if (upgradeSixCount >= 1) {
-        document.getElementById("itemSixPrice").innerHTML = "Upgrade Maxed";
-        itemSixCost = Infinity;
-    }
-}
-
 // AUTOCLICKER UPGRADES
 
 
 let i = 0;
+let j = 0;
+let k = 0;
 // Code Plans:
 // If the upgrade count is less than 1, don't do anything
 // If the upgrade count is greater than or equal to 1, auto-earn points that scales with the upgrade count
@@ -378,4 +454,30 @@ function autoRock() {
                     autoRock();
                 }
         }, upgradeSixDelay);
+}
+
+function autoPaper() {
+    setTimeout(() => { 
+            score = score + 1 + (upgradeFourCount - 1);
+            bonusChanceRoll();
+            document.getElementById("score").innerHTML = score;
+            document.getElementById("score").innerHTML = scoreCommas();
+            i++
+            if (j < Infinity) {
+                autoPaper();
+            }
+    }, upgradeSevenDelay);
+}
+
+function autoScissors() {
+    setTimeout(() => { 
+            score = score + 1 + (upgradeFiveCount - 1);
+            bonusChanceRoll();
+            document.getElementById("score").innerHTML = score;
+            document.getElementById("score").innerHTML = scoreCommas();
+            i++
+            if (k < Infinity) {
+                autoScissors();
+            }
+    }, upgradeEightDelay);
 }
