@@ -12,6 +12,9 @@
     </style>
 </head>
 <body>
+    <!--!------------------------------------------------->
+    <!--*TODO: Create custom colors for the score number-->
+    <!--!------------------------------------------------->
 
     <!-- Rock, Paper, and Scissors elements -->
     <div>
@@ -29,9 +32,6 @@
     <p id="demo" class="result"></p>
     <p id="freePoint" class="freePoint"></p>
     <p id="score" class="score"></p>
-
-    <!--! {PURELY EXPERIMENTAL} -->
-    <!--*TODO: Make the score value a form of currency to buy stuff with-->
 
     <!-- Shop elements-->
     <p class="shop">Shop</p>
@@ -69,6 +69,9 @@
     <p onclick="upgradeEight()" id="itemEight" class="itemEight">A</p>
     <p onclick="upgradeEight()" id="itemEight" class="itemDescEight">Autoclicks scissors</p>
     <p id="itemEightPrice" class="itemEightCost"></p>
+
+    <p id="cosmeticOne" class="cosmeticOneLocked">1M</p>
+    <p onclick="useCosmeticOne()" id="cosmeticOneDesc" class="cosmeticOneDesc">LOCKED: Achieve 1M</p>
 
     <script src="script.js"></script>
 </body>

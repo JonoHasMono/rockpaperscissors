@@ -25,6 +25,21 @@ let upgradeSixDelay = 200;
 let upgradeSevenDelay = 200;
 let upgradeEightDelay = 200;
 
+let cosmeticOneUnlocked = false;
+
+function cosmeticCheck() {
+    cosmeticOneCheck();
+}
+
+function cosmeticOneCheck() { 
+    if (score >= 1000000) {
+        cosmeticOneUnlocked = true;
+        document.getElementById("cosmeticOne").classList.remove("cosmeticOneLocked");
+        document.getElementById("cosmeticOne").classList.add("cosmeticOne");
+        document.getElementById("cosmeticOneDesc").innerHTML = "Apply Score Color"
+    }
+}
+
 const body = document.getElementById("#body");
 
 document.addEventListener('keyup', logKey);
@@ -123,6 +138,7 @@ function freePointText() {
 }
 
 function singleGame() {
+    cosmeticCheck()
     computerPlay();
     if(playerChoice == "Glock") {
         document.getElementById("demo").innerHTML = glockOutcomes();
@@ -493,7 +509,12 @@ function autoScissors() {
 
 
 
+// Cosmetic upgrades
 
+function useCosmeticOne() {
+    document.getElementById("score").classList.remove("score");
+    document.getElementById("score").classList.add("scoreC1");
+}
 
 
 
