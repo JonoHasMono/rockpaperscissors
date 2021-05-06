@@ -165,7 +165,7 @@ function rockScores() {
              }
     return score = score - 1;
     } else {
-    return score = score + bonusPoints + (upgradeThreeCount - 1);
+    return score = score + bonusPoints + ((upgradeThreeCount - 1) * upgradeThreeCount);
     }
 }
 
@@ -195,7 +195,7 @@ function paperScores() {
              }
     return score = score - 1;
     } else {
-    return score = score + bonusPoints;
+        return score = score + bonusPoints + ((upgradeFourCount - 1) * upgradeFourCount);
     }
 }
 
@@ -224,7 +224,7 @@ function scissorsScores() {
              }
     return score = score - 1;
     } else {
-    return score = score + bonusPoints;
+        return score = score + bonusPoints + ((upgradeFiveCount - 1) * upgradeFiveCount);
     }
 }
 
@@ -295,7 +295,7 @@ function upgradeOne() {
 
 function upgradeTwo() {
     if(score >= itemTwoCost) {
-        bonusPoints += bonusPoints;
+        bonusPoints += (bonusPoints * 2);
         score = score - itemTwoCost;
         upgradeTwoCount = upgradeTwoCount + 1;
         itemTwoCost = Math.floor(50 * (3 ** upgradeTwoCount) * 0.1);
