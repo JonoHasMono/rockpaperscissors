@@ -138,7 +138,6 @@ function freePointText() {
 }
 
 function singleGame() {
-    cosmeticCheck()
     computerPlay();
     if(playerChoice == "Glock") {
         document.getElementById("demo").innerHTML = glockOutcomes();
@@ -171,6 +170,7 @@ function rockOutcomes() {
 }
 
 function rockScores() {
+    cosmeticCheck();
     if(computerChoice == "Rock") {
     return score + 0;
     } else if(computerChoice == "Paper") {
@@ -201,6 +201,7 @@ function paperOutcomes() {
 }
 
 function paperScores() {
+    cosmeticCheck();
     if(computerChoice == "Paper") {
     return score + 0;
     } else if(computerChoice == "Scissors") {
@@ -230,6 +231,7 @@ function scissorsOutcomes() {
 }
 
 function scissorsScores() {
+    cosmeticCheck();
     if(computerChoice == "Scissors") {
     return score + 0;
     } else if(computerChoice == "Rock") {
@@ -258,6 +260,7 @@ function glockBullets() {
 }
 
 function glockScores() {
+    cosmeticCheck();
     return score = score + 5000000000;
 }
 
@@ -476,6 +479,7 @@ function autoRock() {
                 document.getElementById("score").innerHTML = scoreCommas();
                 i++
                 if (i < Infinity) {
+                    cosmeticCheck();
                     autoRock();
                 }
         }, upgradeSixDelay);
@@ -489,6 +493,7 @@ function autoPaper() {
             document.getElementById("score").innerHTML = scoreCommas();
             i++
             if (j < Infinity) {
+                cosmeticCheck();
                 autoPaper();
             }
     }, upgradeSevenDelay);
@@ -502,6 +507,7 @@ function autoScissors() {
             document.getElementById("score").innerHTML = scoreCommas();
             i++
             if (k < Infinity) {
+                cosmeticCheck();
                 autoScissors();
             }
     }, upgradeEightDelay);
@@ -515,7 +521,6 @@ function useCosmeticOne() {
     document.getElementById("score").classList.remove("score");
     document.getElementById("score").classList.add("scoreC1");
 }
-
 
 
 
