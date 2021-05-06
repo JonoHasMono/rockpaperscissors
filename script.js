@@ -92,15 +92,15 @@ function upgradeFiveCost() {
 }
 
 function upgradeSixCost() {
-    return "Price: " + itemSixCost;
+    return "Price: " + (itemSixCost.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","));
 }
 
 function upgradeSevenCost() {
-    return "Price: " + itemSevenCost;
+    return "Price: " + (itemSevenCost.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","));
 }
 
 function upgradeEightCost() {
-    return "Price: " + itemEightCost;
+    return "Price: " + (itemEightCost.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","));
 }
 
 function bonusChanceRoll() {
@@ -229,13 +229,20 @@ function scissorsScores() {
 }
 
 function glockOutcomes() {
-    return "You shot your opponent 8 times, you won";
+    return "You shot your opponent " + (glockBullets()) + " times, you won";
     computerChoice = ""
     playerChoice = ""
 }
 
+let glockShots = 0;
+
+function glockBullets() {
+    glockShots = Math.floor((Math.random() * 100) + 1);
+    return glockShots;
+}
+
 function glockScores() {
-    return score = score + 500000;
+    return score = score + 5000000000;
 }
 
 
@@ -285,7 +292,7 @@ function upgradeOne() {
         upgradeOneCount = upgradeOneCount + 1;
         itemOneCost = Math.floor(100 * (2 ** upgradeOneCount) * 0.1);
         document.getElementById("score").innerHTML = score;
-        document.getElementById("itemOnePrice").innerHTML = "Price: " + itemOneCost;
+        document.getElementById("itemOnePrice").innerHTML = "Price: " + (itemOneCost.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","));
         document.getElementById("score").innerHTML = scoreCommas();
         upgradeOneLock();
     } else {
@@ -300,7 +307,7 @@ function upgradeTwo() {
         upgradeTwoCount = upgradeTwoCount + 1;
         itemTwoCost = Math.floor(50 * (3 ** upgradeTwoCount) * 0.1);
         document.getElementById("score").innerHTML = score;
-        document.getElementById("itemTwoPrice").innerHTML = "Price: " + itemTwoCost;
+        document.getElementById("itemTwoPrice").innerHTML = "Price: " + (itemTwoCost.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","));
         document.getElementById("score").innerHTML = scoreCommas();
     } else {
         youreBroke();
@@ -313,7 +320,7 @@ function upgradeThree() {
         upgradeThreeCount = upgradeThreeCount + 1;
         itemThreeCost = Math.floor(100 * (2 ** upgradeThreeCount) * 0.2);
         document.getElementById("score").innerHTML = score;
-        document.getElementById("itemThreePrice").innerHTML = "Price: " + itemThreeCost;
+        document.getElementById("itemThreePrice").innerHTML = "Price: " + (itemThreeCost.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","));
         document.getElementById("score").innerHTML = scoreCommas();
     } else {
         youreBroke();
@@ -326,7 +333,7 @@ function upgradeFour() {
         upgradeFourCount = upgradeFourCount + 1;
         itemFourCost = Math.floor(100 * (2 ** upgradeFourCount) * 0.2);
         document.getElementById("score").innerHTML = score;
-        document.getElementById("itemFourPrice").innerHTML = "Price: " + itemFourCost;
+        document.getElementById("itemFourPrice").innerHTML = "Price: " + (itemFourCost.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","));
         document.getElementById("score").innerHTML = scoreCommas();
     } else {
         youreBroke();
@@ -339,7 +346,7 @@ function upgradeFive() {
         upgradeFiveCount = upgradeFiveCount + 1;
         itemFiveCost = Math.floor(100 * (2 ** upgradeFiveCount) * 0.2);
         document.getElementById("score").innerHTML = score;
-        document.getElementById("itemFivePrice").innerHTML = "Price: " + itemFiveCost;
+        document.getElementById("itemFivePrice").innerHTML = "Price: " + (itemFiveCost.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","));
         document.getElementById("score").innerHTML = scoreCommas();
     } else {
         youreBroke();
@@ -353,7 +360,7 @@ function upgradeSix() {
             upgradeSixCount = upgradeSixCount + 1;
             document.getElementById("score").innerHTML = score;
             itemSixCost = itemSixCost * 5;
-            document.getElementById("itemSixPrice").innerHTML = "Price: " + itemSixCost;
+            document.getElementById("itemSixPrice").innerHTML = "Price: " + (itemSixCost.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","));
             document.getElementById("score").innerHTML = scoreCommas();
             autoRock();
         } else if(upgradeSixCount == 2) {
@@ -379,7 +386,7 @@ function upgradeSix() {
                 upgradeSevenCount = upgradeSevenCount + 1;
                 document.getElementById("score").innerHTML = score;
                 itemSevenCost = itemSevenCost * 5;
-                document.getElementById("itemSevenPrice").innerHTML = "Price: " + itemSevenCost;
+                document.getElementById("itemSevenPrice").innerHTML = "Price: " + (itemSevenCost.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","));
                 document.getElementById("score").innerHTML = scoreCommas();
                 autoPaper();
             } else if(upgradeSevenCount == 2) {
@@ -406,7 +413,7 @@ function upgradeSix() {
                     upgradeEightCount = upgradeEightCount + 1;
                     document.getElementById("score").innerHTML = score;
                     itemEightCost = itemEightCost * 5;
-                    document.getElementById("itemEightPrice").innerHTML = "Price: " + itemEightCost;
+                    document.getElementById("itemEightPrice").innerHTML = "Price: " + (itemEightCost.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","));
                     document.getElementById("score").innerHTML = scoreCommas();
                     autoScissors();
                 } else if(upgradeEightCount == 2) {
