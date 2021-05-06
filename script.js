@@ -224,7 +224,7 @@ function scissorsScores() {
              }
     return score = score - 1;
     } else {
-        return score = score + bonusPoints + (upgradeFiveCount - 1;
+        return score = score + bonusPoints + (upgradeFiveCount - 1);
     }
 }
 
