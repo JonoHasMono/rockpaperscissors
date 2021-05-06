@@ -38,6 +38,8 @@ function logKey(e) {
           paperClicked();
       } else if (key == ' KeyE') {
           scissorsClicked();
+      } else if (key == ' KeyG') {
+          glockClicked();
       }
 }
 
@@ -481,3 +483,18 @@ function autoScissors() {
             }
     }, upgradeEightDelay);
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// Hi
