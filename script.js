@@ -348,7 +348,7 @@ function upgradeOne() {
 
 function upgradeTwo() {
     if(score >= itemTwoCost) {
-        bonusPoints += (bonusPoints + bonusPoints);
+        bonusPoints += bonusPoints;
         score = score - itemTwoCost;
         upgradeTwoCount = upgradeTwoCount + 1;
         itemTwoCost = Math.floor(50 * (3 ** upgradeTwoCount) * 0.1);
@@ -548,6 +548,8 @@ function useCosmeticOne() {
     if (cosmeticOneUnlocked == true) {
         document.getElementById("score").removeAttribute("class");
         document.getElementById("score").classList.add("scoreC1");
+        document.getElementById("bg").removeAttribute("class");
+        document.getElementById("bg").classList.add("c1Body");
     }
     
 }

@@ -1,5 +1,5 @@
-.body {
-    background-color: rgb(100,200,200);
+.starterBody {
+    background-color: #CCCCCC;
 }
 
 .keyspam {
@@ -778,4 +778,8 @@
     width: 30%;
     padding: 0px 0px 0px 0px;
     margin: auto;
+}
+
+.c1Body {
+    background-color: rgb(200, 210, 225);
 }
