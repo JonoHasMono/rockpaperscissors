@@ -26,10 +26,26 @@ let upgradeSevenDelay = 200;
 let upgradeEightDelay = 200;
 
 let cosmeticOneUnlocked = false;
+let cosmeticTwoUnlocked = false;
+
+let glockUsed = false;
 
 function cosmeticCheck() {
-    cosmeticOneCheck();
+    //this is kinda useless now.
 }
+
+function cosmeticAutoCheck() {
+    setTimeout(() => { 
+        let z = 0;
+            cosmeticOneCheck();
+            cosmeticTwoCheck();
+            z++
+            if (z < Infinity) {
+                cosmeticAutoCheck();
+            }
+    }, 100);
+}
+
 
 function cosmeticOneCheck() { 
     if (score >= 1000000) {
@@ -37,6 +53,15 @@ function cosmeticOneCheck() {
         document.getElementById("cosmeticOne").classList.remove("cosmeticOneLocked");
         document.getElementById("cosmeticOne").classList.add("cosmeticOne");
         document.getElementById("cosmeticOneDesc").innerHTML = "Apply Score Color"
+    }
+}
+
+function cosmeticTwoCheck() { 
+    if (glockUsed == true) {
+        cosmeticTwoUnlocked = true;
+        document.getElementById("cosmeticTwo").classList.remove("cosmeticTwoLocked");
+        document.getElementById("cosmeticTwo").classList.add("cosmeticTwo");
+        document.getElementById("cosmeticTwoDesc").innerHTML = "Apply Score Color"
     }
 }
 
@@ -49,12 +74,16 @@ function logKey(e) {
     key = key.toString();
     if (key == ' KeyQ') {
         rockClicked();
+        cosmeticAutoCheck();
       } else if (key == ' KeyW') {
           paperClicked();
+          cosmeticAutoCheck();
       } else if (key == ' KeyE') {
           scissorsClicked();
+          cosmeticAutoCheck();
       } else if (key == ' KeyG') {
           glockClicked();
+          cosmeticAutoCheck();
       }
 }
 
@@ -154,6 +183,7 @@ function singleGame() {
     }
 
     document.getElementById("score").innerHTML = scoreCommas();
+    cosmeticAutoCheck();
 }
 
 function rockOutcomes() {
@@ -170,7 +200,6 @@ function rockOutcomes() {
 }
 
 function rockScores() {
-    cosmeticCheck();
     if(computerChoice == "Rock") {
     return score + 0;
     } else if(computerChoice == "Paper") {
@@ -201,7 +230,6 @@ function paperOutcomes() {
 }
 
 function paperScores() {
-    cosmeticCheck();
     if(computerChoice == "Paper") {
     return score + 0;
     } else if(computerChoice == "Scissors") {
@@ -231,7 +259,6 @@ function scissorsOutcomes() {
 }
 
 function scissorsScores() {
-    cosmeticCheck();
     if(computerChoice == "Scissors") {
     return score + 0;
     } else if(computerChoice == "Rock") {
@@ -260,8 +287,8 @@ function glockBullets() {
 }
 
 function glockScores() {
-    cosmeticCheck();
-    return score = score + 5000000000;
+    glockUsed = true;
+    return score = score + 5000000;
 }
 
 
@@ -321,7 +348,7 @@ function upgradeOne() {
 
 function upgradeTwo() {
     if(score >= itemTwoCost) {
-        bonusPoints += (bonusPoints * 2);
+        bonusPoints += (bonusPoints + bonusPoints);
         score = score - itemTwoCost;
         upgradeTwoCount = upgradeTwoCount + 1;
         itemTwoCost = Math.floor(50 * (3 ** upgradeTwoCount) * 0.1);
@@ -491,7 +518,7 @@ function autoPaper() {
             bonusChanceRoll();
             document.getElementById("score").innerHTML = score;
             document.getElementById("score").innerHTML = scoreCommas();
-            i++
+            j++
             if (j < Infinity) {
                 cosmeticCheck();
                 autoPaper();
@@ -505,7 +532,7 @@ function autoScissors() {
             bonusChanceRoll();
             document.getElementById("score").innerHTML = score;
             document.getElementById("score").innerHTML = scoreCommas();
-            i++
+            k++
             if (k < Infinity) {
                 cosmeticCheck();
                 autoScissors();
@@ -518,10 +545,20 @@ function autoScissors() {
 // Cosmetic upgrades
 
 function useCosmeticOne() {
-    document.getElementById("score").classList.remove("score");
-    document.getElementById("score").classList.add("scoreC1");
+    if (cosmeticOneUnlocked == true) {
+        document.getElementById("score").removeAttribute("class");
+        document.getElementById("score").classList.add("scoreC1");
+    }
+    
 }
 
+function useCosmeticTwo() {
+    if (cosmeticTwoUnlocked == true) {
+        document.getElementById("score").removeAttribute("class");
+        document.getElementById("score").classList.add("scoreC2");
+    }
+    
+}
 
 
 
