@@ -29,7 +29,6 @@ let cosmeticOneUnlocked = false;
 let cosmeticTwoUnlocked = false;
 
 let glockUsed = false;
-
 function cosmeticCheck() {
     //this is kinda useless now.
 }
@@ -162,7 +161,10 @@ function freePoint() {
 }
 
 function freePointText() {
-    setTimeout(() => {document.getElementById("freePoint").innerHTML = ""}, 1000);
+    setTimeout(() => {
+        document.getElementById("freePoint").innerHTML = ""
+        document.getElementById("freePoint").removeAttribute("class")}, 1000);
+    document.getElementById("freePoint").classList.add("freePoint");
     return "Lucky!";
 }
 
