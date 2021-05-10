@@ -16,9 +16,9 @@ let upgradeEightCount = 1;
 
 let itemOneCost = Math.floor(20 * (3 ** upgradeOneCount) * 0.4);
 let itemTwoCost = Math.floor(50 * (3 ** upgradeTwoCount) * 0.3);
-let itemThreeCost = Math.floor(100 * (2 ** upgradeThreeCount) * 0.2);
-let itemFourCost = Math.floor(100 * (2 ** upgradeFourCount) * 0.2);
-let itemFiveCost = Math.floor(100 * (2 ** upgradeFiveCount) * 0.2);
+let itemThreeCost = Math.floor(20 * (2 ** upgradeThreeCount) * 0.2);
+let itemFourCost = Math.floor(20 * (2 ** upgradeFourCount) * 0.2);
+let itemFiveCost = Math.floor(20 * (2 ** upgradeFiveCount) * 0.2);
 let itemSixCost = 10000; let itemSevenCost = 10000; let itemEightCost = 10000;
 
 let upgradeSixDelay = 200;
