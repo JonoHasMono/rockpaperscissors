@@ -405,20 +405,26 @@ function upgradeSix() {
             score = score - itemSixCost;
             upgradeSixCount = upgradeSixCount + 1;
             document.getElementById("score").innerHTML = score;
-            itemSixCost = itemSixCost * 5;
+            itemSixCost = itemSixCost * 25;
             document.getElementById("itemSixPrice").innerHTML = "Price: " + (itemSixCost.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","));
             document.getElementById("score").innerHTML = scoreCommas();
             autoRock();
-        } else if(upgradeSixCount == 2) {
+        } else if(upgradeSixCount < 4) {
+            score = score - itemSixCost;
+            upgradeSixCount = upgradeSixCount + 1;
+            document.getElementById("score").innerHTML = score;
+            itemSixCost = itemSixCost * 25
+            document.getElementById("itemSixPrice").innerHTML = "Price: " + (itemSixCost.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","));
+            document.getElementById("score").innerHTML = scoreCommas();
+            upgradeSixDelay = upgradeSixDelay / 2;
+        } else if(upgradeSixCount == 4) {
             score = score - itemSixCost;
             upgradeSixCount = upgradeSixCount + 1;
             document.getElementById("score").innerHTML = score;
             document.getElementById("score").innerHTML = scoreCommas();
-            upgradeSixDelay = upgradeSixDelay / 2;
+            upgradeSixDelay = upgradeSixDelay / 2
             document.getElementById("itemSixPrice").innerHTML = "Upgrade Maxed";
             itemSixCost = Infinity;
-        } else {
-
         }
         } else {
             youreBroke();
@@ -464,20 +470,26 @@ function upgradeSix() {
                     score = score - itemEightCost;
                     upgradeEightCount = upgradeEightCount + 1;
                     document.getElementById("score").innerHTML = score;
-                    itemEightCost = itemEightCost * 5;
+                    itemEightCost = itemEightCost * 25;
                     document.getElementById("itemEightPrice").innerHTML = "Price: " + (itemEightCost.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","));
                     document.getElementById("score").innerHTML = scoreCommas();
                     autoScissors();
-                } else if(upgradeEightCount == 2) {
+                } else if(upgradeEightCount < 4) {
+                    score = score - itemEightCost;
+                    upgradeEightCount = upgradeEightCount + 1;
+                    document.getElementById("score").innerHTML = score;
+                    itemEightCost = itemEightCost * 25
+                    document.getElementById("itemEightPrice").innerHTML = "Price: " + (itemEightCost.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","));
+                    document.getElementById("score").innerHTML = scoreCommas();
+                    upgradeEightDelay = upgradeEightDelay / 2;
+                } else if(upgradeEightCount == 4) {
                     score = score - itemEightCost;
                     upgradeEightCount = upgradeEightCount + 1;
                     document.getElementById("score").innerHTML = score;
                     document.getElementById("score").innerHTML = scoreCommas();
-                    upgradeEightDelay = upgradeEightDelay / 2;
+                    upgradeEightDelay = upgradeEightDelay / 2
                     document.getElementById("itemEightPrice").innerHTML = "Upgrade Maxed";
                     itemEightCost = Infinity;
-                } else {
-        
                 }
                 } else {
                     youreBroke();
