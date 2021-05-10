@@ -14,8 +14,8 @@ let upgradeSixCount = 1;
 let upgradeSevenCount = 1;
 let upgradeEightCount = 1;
 
-let itemOneCost = Math.floor(100 * (2 ** upgradeOneCount) * 0.1);
-let itemTwoCost = Math.floor(50 * (3 ** upgradeTwoCount) * 0.1);
+let itemOneCost = Math.floor(20 * (3 ** upgradeOneCount) * 0.4);
+let itemTwoCost = Math.floor(50 * (3 ** upgradeTwoCount) * 0.3);
 let itemThreeCost = Math.floor(100 * (2 ** upgradeThreeCount) * 0.2);
 let itemFourCost = Math.floor(100 * (2 ** upgradeFourCount) * 0.2);
 let itemFiveCost = Math.floor(100 * (2 ** upgradeFiveCount) * 0.2);
@@ -336,7 +336,7 @@ function upgradeOne() {
         bonusChance += 0.05;
         score = score - itemOneCost;
         upgradeOneCount = upgradeOneCount + 1;
-        itemOneCost = Math.floor(100 * (2 ** upgradeOneCount) * 0.1);
+        itemOneCost = Math.floor(20 * (3 ** upgradeOneCount) * 0.4);
         document.getElementById("score").innerHTML = score;
         document.getElementById("itemOnePrice").innerHTML = "Price: " + (itemOneCost.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","));
         document.getElementById("score").innerHTML = scoreCommas();
@@ -351,7 +351,7 @@ function upgradeTwo() {
         bonusPoints += bonusPoints;
         score = score - itemTwoCost;
         upgradeTwoCount = upgradeTwoCount + 1;
-        itemTwoCost = Math.floor(50 * (3 ** upgradeTwoCount) * 0.1);
+        itemTwoCost = Math.floor(50 * (3 ** upgradeTwoCount) * 0.3);
         document.getElementById("score").innerHTML = score;
         document.getElementById("itemTwoPrice").innerHTML = "Price: " + (itemTwoCost.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","));
         document.getElementById("score").innerHTML = scoreCommas();
