@@ -554,11 +554,15 @@ function useCosmeticOne() {
     
 }
 
+
 function useCosmeticTwo() {
     if (cosmeticTwoUnlocked == true) {
         document.getElementById("score").removeAttribute("class");
         document.getElementById("score").classList.add("scoreC2");
+        document.getElementById("bg").removeAttribute("class");
+        document.getElementById("bg").classList.add("c2Body");
     }
+
     
 }
 
@@ -569,4 +573,4 @@ function useCosmeticTwo() {
 
 
 
-// Hi
+// Hi   
