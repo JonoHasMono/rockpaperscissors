@@ -19,11 +19,11 @@ let itemTwoCost = Math.floor(50 * (3 ** upgradeTwoCount) * 0.3);
 let itemThreeCost = Math.floor(20 * (2 ** upgradeThreeCount) * 0.2);
 let itemFourCost = Math.floor(20 * (2 ** upgradeFourCount) * 0.2);
 let itemFiveCost = Math.floor(20 * (2 ** upgradeFiveCount) * 0.2);
-let itemSixCost = 10000; let itemSevenCost = 10000; let itemEightCost = 10000;
+let itemSixCost = 50; let itemSevenCost = 50; let itemEightCost = 50;
 
-let upgradeSixDelay = 200;
-let upgradeSevenDelay = 200;
-let upgradeEightDelay = 200;
+let upgradeSixDelay = 1000;
+let upgradeSevenDelay = 1000;
+let upgradeEightDelay = 1000;
 
 let cosmeticOneUnlocked = false;
 let cosmeticTwoUnlocked = false;
@@ -431,20 +431,26 @@ function upgradeSix() {
                 score = score - itemSevenCost;
                 upgradeSevenCount = upgradeSevenCount + 1;
                 document.getElementById("score").innerHTML = score;
-                itemSevenCost = itemSevenCost * 5;
+                itemSevenCost = itemSevenCost * 25;
                 document.getElementById("itemSevenPrice").innerHTML = "Price: " + (itemSevenCost.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","));
                 document.getElementById("score").innerHTML = scoreCommas();
                 autoPaper();
-            } else if(upgradeSevenCount == 2) {
+            } else if(upgradeSevenCount < 4) {
+                score = score - itemSevenCost;
+                upgradeSevenCount = upgradeSevenCount + 1;
+                document.getElementById("score").innerHTML = score;
+                itemSevenCost = itemSevenCost * 25
+                document.getElementById("itemSevenPrice").innerHTML = "Price: " + (itemSevenCost.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","));
+                document.getElementById("score").innerHTML = scoreCommas();
+                upgradeSevenDelay = upgradeSevenDelay / 2;
+            } else if(upgradeSevenCount == 4) {
                 score = score - itemSevenCost;
                 upgradeSevenCount = upgradeSevenCount + 1;
                 document.getElementById("score").innerHTML = score;
                 document.getElementById("score").innerHTML = scoreCommas();
-                upgradeSevenDelay = upgradeSevenDelay / 2;
+                upgradeSevenDelay = upgradeSevenDelay / 2
                 document.getElementById("itemSevenPrice").innerHTML = "Upgrade Maxed";
                 itemSevenCost = Infinity;
-            } else {
-    
             }
             } else {
                 youreBroke();
