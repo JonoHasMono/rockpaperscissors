@@ -350,7 +350,7 @@ function upgradeOne() {
 
 function upgradeTwo() {
     if(score >= itemTwoCost) {
-        bonusPoints += bonusPoints + bonusPoints;
+        bonusPoints += bonusPoints + 1;
         score = score - itemTwoCost;
         upgradeTwoCount = upgradeTwoCount + 1;
         itemTwoCost = Math.floor(50 * (3 ** upgradeTwoCount) * 0.4);
