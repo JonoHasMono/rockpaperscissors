@@ -425,7 +425,7 @@ function upgradeSix() {
             document.getElementById("itemSixPrice").innerHTML = "Price: " + (itemSixCost.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","));
             document.getElementById("score").innerHTML = scoreCommas();
             autoRock();
-        } else if(upgradeSixCount < 5) {
+        } else if(upgradeSixCount < 6) {
             score = score - itemSixCost;
             upgradeSixCount = upgradeSixCount + 1;
             document.getElementById("score").innerHTML = score;
@@ -433,12 +433,12 @@ function upgradeSix() {
             document.getElementById("itemSixPrice").innerHTML = "Price: " + (itemSixCost.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","));
             document.getElementById("score").innerHTML = scoreCommas();
             upgradeSixDelay = upgradeSixDelay / 2;
-        } else if(upgradeSixCount == 5) {
+        } else if(upgradeSixCount == 6) {
             score = score - itemSixCost;
             upgradeSixCount = upgradeSixCount + 1;
             document.getElementById("score").innerHTML = score;
             document.getElementById("score").innerHTML = scoreCommas();
-            upgradeSixDelay = upgradeSixDelay / 2;
+            upgradeSixDelay = 10;
             document.getElementById("itemSixPrice").innerHTML = "Upgrade Maxed";
             itemSixCost = Infinity;
         }
@@ -457,7 +457,7 @@ function upgradeSix() {
                 document.getElementById("itemSevenPrice").innerHTML = "Price: " + (itemSevenCost.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","));
                 document.getElementById("score").innerHTML = scoreCommas();
                 autoPaper();
-            } else if(upgradeSevenCount < 5) {
+            } else if(upgradeSevenCount < 6) {
                 score = score - itemSevenCost;
                 upgradeSevenCount = upgradeSevenCount + 1;
                 document.getElementById("score").innerHTML = score;
@@ -465,12 +465,12 @@ function upgradeSix() {
                 document.getElementById("itemSevenPrice").innerHTML = "Price: " + (itemSevenCost.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","));
                 document.getElementById("score").innerHTML = scoreCommas();
                 upgradeSevenDelay = upgradeSevenDelay / 2;
-            } else if(upgradeSevenCount == 5) {
+            } else if(upgradeSevenCount == 6) {
                 score = score - itemSevenCost;
                 upgradeSevenCount = upgradeSevenCount + 1;
                 document.getElementById("score").innerHTML = score;
                 document.getElementById("score").innerHTML = scoreCommas();
-                upgradeSevenDelay = upgradeSevenDelay / 2;
+                upgradeSevenDelay = 10;
                 document.getElementById("itemSevenPrice").innerHTML = "Upgrade Maxed";
                 itemSevenCost = Infinity;
             }
@@ -490,7 +490,7 @@ function upgradeSix() {
                     document.getElementById("itemEightPrice").innerHTML = "Price: " + (itemEightCost.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","));
                     document.getElementById("score").innerHTML = scoreCommas();
                     autoScissors();
-                } else if(upgradeEightCount < 5) {
+                } else if(upgradeEightCount < 6) {
                     score = score - itemEightCost;
                     upgradeEightCount = upgradeEightCount + 1;
                     document.getElementById("score").innerHTML = score;
@@ -498,12 +498,12 @@ function upgradeSix() {
                     document.getElementById("itemEightPrice").innerHTML = "Price: " + (itemEightCost.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","));
                     document.getElementById("score").innerHTML = scoreCommas();
                     upgradeEightDelay = upgradeEightDelay / 2;
-                } else if(upgradeEightCount == 5) {
+                } else if(upgradeEightCount == 6) {
                     score = score - itemEightCost;
                     upgradeEightCount = upgradeEightCount + 1;
                     document.getElementById("score").innerHTML = score;
                     document.getElementById("score").innerHTML = scoreCommas();
-                    upgradeEightDelay = upgradeEightDelay / 2;
+                    upgradeEightDelay = 10;
                     document.getElementById("itemEightPrice").innerHTML = "Upgrade Maxed";
                     itemEightCost = Infinity;
                 }
