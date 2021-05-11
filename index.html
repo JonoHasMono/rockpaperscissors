@@ -22,7 +22,7 @@
 
     <!-- Glock element (Super secret!) -->
     <div>
-        <a onclick="glockClicked()" class="glock">Glock</a>
+        <a id="glock" onclick="glockClicked()" class="glock">Glock</a>
     </div>
 
     <!-- Result and luck text at the top, and score number at the bottom -->
@@ -66,6 +66,10 @@
     <p onclick="upgradeEight()" id="itemEight" class="itemEight">A</p>
     <p onclick="upgradeEight()" id="itemEight" class="itemDescEight">Autoclicks scissors</p>
     <p id="itemEightPrice" class="itemEightCost"></p>
+
+    <p onclick="upgradeNine()" id="itemNine" class="itemNine">G</p>
+    <p onclick="upgradeNine()" id="itemNine" class="itemDescNine">Unlocks a secret!</p>
+    <p id="itemNinePrice" class="itemNineCost">Price: 1,000,000,000</p>
 
     <p id="cosmeticOne" class="cosmeticOneLocked">1M</p>
     <p onclick="useCosmeticOne()" id="cosmeticOneDesc" class="cosmeticOneDesc">LOCKED: Achieve 1M</p>

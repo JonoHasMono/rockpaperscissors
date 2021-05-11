@@ -28,6 +28,8 @@ let upgradeEightDelay = 1000;
 let cosmeticOneUnlocked = false;
 let cosmeticTwoUnlocked = false;
 
+let glockUnlocked = false;
+
 let glockUsed = false;
 function cosmeticCheck() {
     //this is kinda useless now.
@@ -145,7 +147,6 @@ function upgradeSevenCost() {
 function upgradeEightCost() {
     return "Price: " + (itemEightCost.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","));
 }
-
 function bonusChanceRoll() {
     let randomBonus = Math.random()
     if(bonusChance > randomBonus) {
@@ -290,7 +291,7 @@ function glockBullets() {
 
 function glockScores() {
     glockUsed = true;
-    return score = score + 5000000;
+    return score = score + (500000 * glockBullets());
 }
 
 
@@ -311,8 +312,10 @@ function scissorsClicked() {
 }
 
 function glockClicked() {
-    playerChoice = "Glock";
-    singleGame();
+    if (glockUnlocked == true) {
+        playerChoice = "Glock";
+        singleGame();
+    }
 }
 
 function youreBroke() {
@@ -350,7 +353,7 @@ function upgradeOne() {
 
 function upgradeTwo() {
     if(score >= itemTwoCost) {
-        bonusPoints += bonusPoints + 1;
+        bonusPoints += bonusPoints + 2;
         score = score - itemTwoCost;
         upgradeTwoCount = upgradeTwoCount + 1;
         itemTwoCost = Math.floor(50 * (3 ** upgradeTwoCount) * 0.4);
@@ -497,6 +500,21 @@ function upgradeSix() {
                     youreBroke();
                 }
             }
+
+        function upgradeNine() {
+            if(score >= 1000000000) {
+                glockUnlocked = true;
+                document.getElementById("glock").style.opacity = 1;
+                score = score - 1000000000;
+                itemNineCost = Infinity;
+                document.getElementById("score").innerHTML = score;
+                document.getElementById("score").innerHTML = scoreCommas();
+                document.getElementById("itemNinePrice").innerHTML = "Upgrade Maxed";
+
+            } else {
+                youreBroke();
+            }
+        }
         
 
 
