@@ -224,7 +224,7 @@ function rockScores() {
              }
     return score = score - 1;
     } else {
-    return score = score + bonusPoints + (upgradeThreeCount - 1);
+    return score = score + bonusPoints + ((upgradeThreeCount - 1) * 2);
     }
 }
 
@@ -254,7 +254,7 @@ function paperScores() {
              }
     return score = score - 1;
     } else {
-        return score = score + bonusPoints + (upgradeFourCount - 1);
+        return score = score + bonusPoints + ((upgradeFourCount - 1) * 2);
     }
 }
 
@@ -283,7 +283,7 @@ function scissorsScores() {
              }
     return score = score - 1;
     } else {
-        return score = score + bonusPoints + (upgradeFiveCount - 1);
+        return score = score + bonusPoints + ((upgradeFiveCount - 1) * 2);
     }
 }
 
