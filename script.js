@@ -27,6 +27,7 @@ let upgradeEightDelay = 1000;
 
 let cosmeticOneUnlocked = false;
 let cosmeticTwoUnlocked = false;
+let cosmeticThreeUnlocked = false;
 
 let glockUnlocked = false;
 
@@ -40,6 +41,7 @@ function cosmeticAutoCheck() {
         let z = 0;
             cosmeticOneCheck();
             cosmeticTwoCheck();
+            cosmeticThreeCheck();
             z++
             if (z < Infinity) {
                 cosmeticAutoCheck();
@@ -63,6 +65,15 @@ function cosmeticTwoCheck() {
         document.getElementById("cosmeticTwo").classList.remove("cosmeticTwoLocked");
         document.getElementById("cosmeticTwo").classList.add("cosmeticTwo");
         document.getElementById("cosmeticTwoDesc").innerHTML = "Apply Score Color"
+    }
+}
+
+function cosmeticThreeCheck() { 
+    if (score >= 50000000000) {
+        cosmeticThreeUnlocked = true;
+        document.getElementById("cosmeticThree").classList.remove("cosmeticThreeLocked");
+        document.getElementById("cosmeticThree").classList.add("cosmeticThree");
+        document.getElementById("cosmeticThreeDesc").innerHTML = "Apply Score Color"
     }
 }
 
@@ -290,8 +301,7 @@ function glockBullets() {
 }
 
 function glockScores() {
-    glockUsed = true;
-    return score = score + (500000 * glockBullets());
+    return score = score + (1000000 * glockBullets()) + ((bonusPoints * 2)) ;
 }
 
 
@@ -313,6 +323,7 @@ function scissorsClicked() {
 
 function glockClicked() {
     if (glockUnlocked == true) {
+        glockUsed = true;
         playerChoice = "Glock";
         singleGame();
     }
@@ -603,6 +614,21 @@ function useCosmeticTwo() {
 
     
 }
+
+function useCosmeticThree() {
+    if (cosmeticThreeUnlocked == true) {
+        document.getElementById("score").removeAttribute("class");
+        document.getElementById("score").classList.add("scoreC3");
+        document.getElementById("bg").removeAttribute("class");
+        document.getElementById("bg").classList.add("c3Body");
+    }
+
+    
+}
+
+
+
+
 
 function iLostInterest () {
     score = Infinity;
