@@ -4,6 +4,7 @@ let score = 0;
 
 let bonusPoints = 1;
 let bonusChance = 0.25;
+let bonusBonusChance = 0;
 
 let upgradeOneCount = 1;
 let upgradeTwoCount = 1;
@@ -13,6 +14,7 @@ let upgradeFiveCount = 1;
 let upgradeSixCount = 1;
 let upgradeSevenCount = 1;
 let upgradeEightCount = 1;
+let upgradeTenCount = 1;
 
 let itemOneCost = Math.floor(20 * (3 ** upgradeOneCount) * 0.4);
 let itemTwoCost = Math.floor(50 * (3 ** upgradeTwoCount) * 0.3);
@@ -20,6 +22,7 @@ let itemThreeCost = Math.floor(20 * (2 ** upgradeThreeCount) * 0.2);
 let itemFourCost = Math.floor(20 * (2 ** upgradeFourCount) * 0.2);
 let itemFiveCost = Math.floor(20 * (2 ** upgradeFiveCount) * 0.2);
 let itemSixCost = 50; let itemSevenCost = 50; let itemEightCost = 50;
+let itemTenCost = 1000000;
 
 let upgradeSixDelay = 1000;
 let upgradeSevenDelay = 1000;
@@ -45,6 +48,8 @@ function cosmeticAutoCheck() {
             }
     }, 100);
 }
+
+cosmeticAutoCheck();
 function cosmeticOneCheck() { 
     if (score >= 1000000) {
         cosmeticOneUnlocked = true;
@@ -89,6 +94,8 @@ function logKey(e) {
       } else if (key == ' KeyG') {
           glockClicked();
           cosmeticAutoCheck();
+      } else if (key == ' KeyL') {
+          iLostInterest();
       }
 }
 
@@ -117,6 +124,7 @@ function showUpgrades() {
     document.getElementById("itemSixPrice").innerHTML = upgradeSixCost();
     document.getElementById("itemSevenPrice").innerHTML = upgradeSevenCost();
     document.getElementById("itemEightPrice").innerHTML = upgradeEightCost();
+    document.getElementById("itemTenPrice").innerHTML = upgradeTenCost();
 }
 function upgradeOneCost() {
     return "Price: " + itemOneCost;
@@ -142,18 +150,32 @@ function upgradeSevenCost() {
 function upgradeEightCost() {
     return "Price: " + (itemEightCost.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","));
 }
+function upgradeTenCost() {
+    return "Price: " + (itemTenCost.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","));
+}
 
 function bonusChanceRoll() {
     let randomBonus = Math.random()
     if(bonusChance > randomBonus) {
         document.getElementById("score").innerHTML = freePoint();
         document.getElementById("freePoint").innerHTML = freePointText();
+        luckyLuckRoll();
     } else {
         document.getElementById("freePoint").innerHTML = "";
     }
 }
+function luckyLuckRoll() {
+    let luckyLuckRandom = Math.random()
+    if (luckyLuckRandom < bonusBonusChance) {
+        document.getElementById("score").innerHTML = luckyLuckPoints();
+    }
+}
 function freePoint() {
     return score = score + bonusPoints
+}
+
+function luckyLuckPoints() {
+    return score = score + (bonusPoints * 10)
 }
 function freePointText() {
     setTimeout(() => {
@@ -180,7 +202,6 @@ function singleGame() {
     }
 
     document.getElementById("score").innerHTML = scoreCommas();
-    cosmeticAutoCheck();
 }
 
 function rockOutcomes() {
@@ -490,6 +511,28 @@ function upgradeNine() {
                 youreBroke();
             }
         }
+function upgradeTen() {
+            if(score >= itemTenCost) {
+                if (upgradeTenCount < 5) {
+                    score = score - itemTenCost;
+                    bonusBonusChance += 0.05;
+                    itemTenCost = itemTenCost * 10;
+                    document.getElementById("itemTenPrice").innerHTML = "Price: " + (itemTenCost.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","));
+                    document.getElementById("score").innerHTML = score;
+                    document.getElementById("score").innerHTML = scoreCommas();
+                    upgradeTenCount++;
+                } else if (upgradeTenCount == 5) {
+                    score = score - itemTenCost;
+                    bonusBonusChance += 0.05;
+                    itemTenCost = Infinity;
+                    document.getElementById("itemTenPrice").innerHTML = "Upgrade maxed"
+                    document.getElementById("score").innerHTML = score;
+                    document.getElementById("score").innerHTML = scoreCommas();
+                }
+            } else {
+                youreBroke();
+            }
+        }
         
 
 function upgradeOneLock() {
@@ -514,7 +557,6 @@ function autoRock() {
                 document.getElementById("score").innerHTML = scoreCommas();
                 i++
                 if (i < Infinity) {
-                    cosmeticCheck();
                     autoRock();
                 }
         }, upgradeSixDelay);
@@ -527,7 +569,6 @@ function autoPaper() {
             document.getElementById("score").innerHTML = scoreCommas();
             j++
             if (j < Infinity) {
-                cosmeticCheck();
                 autoPaper();
             }
     }, upgradeSevenDelay);
@@ -540,7 +581,6 @@ function autoScissors() {
             document.getElementById("score").innerHTML = scoreCommas();
             k++
             if (k < Infinity) {
-                cosmeticCheck();
                 autoScissors();
             }
     }, upgradeEightDelay);
