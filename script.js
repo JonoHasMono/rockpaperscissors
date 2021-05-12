@@ -32,9 +32,6 @@ let cosmeticThreeUnlocked = false;
 let glockUnlocked = false;
 
 let glockUsed = false;
-function cosmeticCheck() {
-    //this is kinda useless now.
-}
 
 function cosmeticAutoCheck() {
     setTimeout(() => { 
@@ -48,8 +45,6 @@ function cosmeticAutoCheck() {
             }
     }, 100);
 }
-
-
 function cosmeticOneCheck() { 
     if (score >= 1000000) {
         cosmeticOneUnlocked = true;
@@ -58,7 +53,6 @@ function cosmeticOneCheck() {
         document.getElementById("cosmeticOneDesc").innerHTML = "Apply Score Color"
     }
 }
-
 function cosmeticTwoCheck() { 
     if (glockUsed == true) {
         cosmeticTwoUnlocked = true;
@@ -67,7 +61,6 @@ function cosmeticTwoCheck() {
         document.getElementById("cosmeticTwoDesc").innerHTML = "Apply Score Color"
     }
 }
-
 function cosmeticThreeCheck() { 
     if (score >= 50000000000) {
         cosmeticThreeUnlocked = true;
@@ -101,7 +94,6 @@ function logKey(e) {
 
 showUpgrades();
 
-
 function computerPlay() {
     let randomNum = Math.ceil(Math.random() * 3)
     if(randomNum == 1) {
@@ -126,38 +118,31 @@ function showUpgrades() {
     document.getElementById("itemSevenPrice").innerHTML = upgradeSevenCost();
     document.getElementById("itemEightPrice").innerHTML = upgradeEightCost();
 }
-
 function upgradeOneCost() {
     return "Price: " + itemOneCost;
 }
-
 function upgradeTwoCost() {
     return "Price: " + itemTwoCost;
 }
-
 function upgradeThreeCost() {
     return "Price: " + itemThreeCost;
 }
-
 function upgradeFourCost() {
     return "Price: " + itemFourCost;
 }
-
 function upgradeFiveCost() {
     return "Price: " + itemFiveCost;
 }
-
 function upgradeSixCost() {
     return "Price: " + (itemSixCost.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","));
 }
-
 function upgradeSevenCost() {
     return "Price: " + (itemSevenCost.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","));
 }
-
 function upgradeEightCost() {
     return "Price: " + (itemEightCost.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","));
 }
+
 function bonusChanceRoll() {
     let randomBonus = Math.random()
     if(bonusChance > randomBonus) {
@@ -167,11 +152,9 @@ function bonusChanceRoll() {
         document.getElementById("freePoint").innerHTML = "";
     }
 }
-
 function freePoint() {
     return score = score + bonusPoints
 }
-
 function freePointText() {
     setTimeout(() => {
         document.getElementById("freePoint").innerHTML = ""
@@ -212,7 +195,6 @@ function rockOutcomes() {
     computerChoice = ""
     playerChoice = ""
 }
-
 function rockScores() {
     if(computerChoice == "Rock") {
     return score + 0;
@@ -242,7 +224,6 @@ function paperOutcomes() {
     computerChoice = ""
     playerChoice = ""
 }
-
 function paperScores() {
     if(computerChoice == "Paper") {
     return score + 0;
@@ -271,7 +252,6 @@ function scissorsOutcomes() {
     computerChoice = ""
     playerChoice = ""
 }
-
 function scissorsScores() {
     if(computerChoice == "Scissors") {
     return score + 0;
@@ -292,14 +272,11 @@ function glockOutcomes() {
     computerChoice = ""
     playerChoice = ""
 }
-
 let glockShots = 0;
-
 function glockBullets() {
     glockShots = Math.floor((Math.random() * 100) + 1);
     return glockShots;
 }
-
 function glockScores() {
     return score = score + (1000000 * glockBullets()) + ((bonusPoints * 2)) ;
 }
@@ -310,17 +287,14 @@ function rockClicked() {
     playerChoice = "Rock";
     singleGame();
 }
-
 function paperClicked() {
     playerChoice = "Paper";
     singleGame();
 }
-
 function scissorsClicked() {
     playerChoice = "Scissors";
     singleGame();
 }
-
 function glockClicked() {
     if (glockUnlocked == true) {
         glockUsed = true;
@@ -342,7 +316,6 @@ function youreBroke() {
         setTimeout(() => {document.getElementById("broke").innerHTML = ""}, 1000);
     }
 }
-
 function scoreCommas() {
     return score.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
 }
@@ -361,7 +334,6 @@ function upgradeOne() {
         youreBroke();
     }
 }
-
 function upgradeTwo() {
     if(score >= itemTwoCost) {
         bonusPoints += bonusPoints + 2;
@@ -375,7 +347,6 @@ function upgradeTwo() {
         youreBroke();
     }
 }
-
 function upgradeThree() {
     if(score >= itemThreeCost) {
         score = score - itemThreeCost;
@@ -388,7 +359,6 @@ function upgradeThree() {
         youreBroke();
     }
 }
-
 function upgradeFour() {
     if(score >= itemFourCost) {
         score = score - itemFourCost;
@@ -401,7 +371,6 @@ function upgradeFour() {
         youreBroke();
     }
 }
-
 function upgradeFive() {
     if(score >= itemFiveCost) {
         score = score - itemFiveCost;
@@ -414,7 +383,6 @@ function upgradeFive() {
         youreBroke();
     }
 }
-
 function upgradeSix() {
     if(score >= itemSixCost) {
         if(upgradeSixCount == 1) {
@@ -446,8 +414,7 @@ function upgradeSix() {
             youreBroke();
         }
     }
-
-    function upgradeSeven() {
+function upgradeSeven() {
         if(score >= itemSevenCost) {
             if(upgradeSevenCount == 1) {
                 score = score - itemSevenCost;
@@ -478,9 +445,7 @@ function upgradeSix() {
                 youreBroke();
             }
         }
-
-        
-        function upgradeEight() {
+function upgradeEight() {
             if(score >= itemEightCost) {
                 if(upgradeEightCount == 1) {
                     score = score - itemEightCost;
@@ -511,8 +476,7 @@ function upgradeSix() {
                     youreBroke();
                 }
             }
-
-        function upgradeNine() {
+function upgradeNine() {
             if(score >= 1000000000) {
                 glockUnlocked = true;
                 document.getElementById("glock").style.opacity = 1;
@@ -528,7 +492,6 @@ function upgradeSix() {
         }
         
 
-
 function upgradeOneLock() {
     if (bonusChance >= 1) {
         document.getElementById("itemOnePrice").innerHTML = "Upgrade Maxed";
@@ -536,16 +499,12 @@ function upgradeOneLock() {
     }
 }
 
-// AUTOCLICKER UPGRADES
 
+// AUTOCLICKER UPGRADES
 
 let i = 0;
 let j = 0;
 let k = 0;
-// Code Plans:
-// If the upgrade count is less than 1, don't do anything
-// If the upgrade count is greater than or equal to 1, auto-earn points that scales with the upgrade count
-
 
 function autoRock() {
         setTimeout(() => { 
@@ -560,7 +519,6 @@ function autoRock() {
                 }
         }, upgradeSixDelay);
 }
-
 function autoPaper() {
     setTimeout(() => { 
             score = score + 1 + (upgradeFourCount - 1);
@@ -574,7 +532,6 @@ function autoPaper() {
             }
     }, upgradeSevenDelay);
 }
-
 function autoScissors() {
     setTimeout(() => { 
             score = score + 1 + (upgradeFiveCount - 1);
@@ -589,8 +546,6 @@ function autoScissors() {
     }, upgradeEightDelay);
 }
 
-
-
 // Cosmetic upgrades
 
 function useCosmeticOne() {
@@ -602,8 +557,6 @@ function useCosmeticOne() {
     }
     
 }
-
-
 function useCosmeticTwo() {
     if (cosmeticTwoUnlocked == true) {
         document.getElementById("score").removeAttribute("class");
@@ -614,7 +567,6 @@ function useCosmeticTwo() {
 
     
 }
-
 function useCosmeticThree() {
     if (cosmeticThreeUnlocked == true) {
         document.getElementById("score").removeAttribute("class");
