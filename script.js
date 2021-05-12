@@ -22,7 +22,7 @@ let itemThreeCost = Math.floor(20 * (2 ** upgradeThreeCount) * 0.2);
 let itemFourCost = Math.floor(20 * (2 ** upgradeFourCount) * 0.2);
 let itemFiveCost = Math.floor(20 * (2 ** upgradeFiveCount) * 0.2);
 let itemSixCost = 50; let itemSevenCost = 50; let itemEightCost = 50;
-let itemTenCost = 1000000;
+let itemTenCost = 10000;
 
 let upgradeSixDelay = 1000;
 let upgradeSevenDelay = 1000;
@@ -521,7 +521,7 @@ function upgradeTen() {
                     document.getElementById("score").innerHTML = score;
                     document.getElementById("score").innerHTML = scoreCommas();
                     upgradeTenCount++;
-                } else if (upgradeTenCount == 5) {
+                } else if (upgradeTenCount == 7) {
                     score = score - itemTenCost;
                     bonusBonusChance += 0.05;
                     itemTenCost = Infinity;
