@@ -175,7 +175,7 @@ function freePoint() {
 }
 
 function luckyLuckPoints() {
-    return score = score + (bonusPoints * 10)
+    return score = score + (bonusPoints * 25)
 }
 function freePointText() {
     setTimeout(() => {
