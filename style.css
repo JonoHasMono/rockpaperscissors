@@ -188,6 +188,22 @@
     text-shadow: 0px 0px 10px rgb(255, 0, 0);
 }
 
+.scoreC3 {
+    position: absolute;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    user-select: none;
+    top: 55%;
+    left: 50%;
+    font-family: 'Segoe UI', Tahoma, Verdana, sans-serif;
+    font-size: 300%;
+    font-weight: bold;
+    width: 100%;
+    -webkit-text-stroke: 1.5px white;
+    animation: rainbow 2s infinite;
+}
+
+
 .cosmeticOneLocked {
     position: absolute;
     transform: translate(-50%, -50%);
@@ -321,12 +337,11 @@
     top: 20%;
     left: 10%;
     font-family: 'Segoe UI', Tahoma, Verdana, sans-serif;
-    color: black;
+    color: white;
     font-size: 300%;
     font-weight: bold;
-    -webkit-text-stroke: 2px rgb(255, 0, 0);
     width: 100%;
-    text-shadow: 0px 0px 30px rgb(255, 0, 0);
+    text-shadow: 0px 0px 30px white;
 }
 
 .cosmeticThreeDesc {
@@ -899,7 +914,7 @@
 }
 
 .c3Body {
-    animation: rainbow 2s infinite;
+    animation: pastel 6s infinite;
 }
 
 @keyframes void {
@@ -909,10 +924,17 @@
 }
 
 @keyframes rainbow {
-    0% {background-color: red;}
-    33% {background-color: blue;}
-    66% {background-color: lime;}
-    100% {background-color: red;}
+    0% {color: red; text-shadow: 0px 0px 50px red;}
+    33% {color: lime; text-shadow: 0px 0px 50px lime;}
+    66% {color: blue; text-shadow: 0px 0px 50px blue;}
+    100% {color: red; text-shadow: 0px 0px 50px red;}
+}
+
+@keyframes pastel {
+    0% {background-color: #DDDDBB;}
+    33% {background-color: #DDAADD;}
+    66% {background-color: #AADDCC;}
+    100% {background-color: #DDDDBB;}
 }
 
 
