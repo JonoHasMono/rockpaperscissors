@@ -513,7 +513,7 @@ function upgradeNine() {
         }
 function upgradeTen() {
             if(score >= itemTenCost) {
-                if (upgradeTenCount < 5) {
+                if (upgradeTenCount < 7) {
                     score = score - itemTenCost;
                     bonusBonusChance += 0.05;
                     itemTenCost = itemTenCost * 10;
